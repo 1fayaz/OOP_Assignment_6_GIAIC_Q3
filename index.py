@@ -1,4 +1,11 @@
-# 1. Using self in Constructor
+
+#1. Using self Assignment
+
+# Assignment:
+# Create a class Student with attributes name and marks.
+# Use the self keyword to initialize these values via a constructor.
+# Add a method display() that prints student details.
+
 
 class Student:
     def __init__(self, student_name, student_marks):
@@ -9,11 +16,18 @@ class Student:
         print(f"Student Name: {self.name} | Marks: {self.marks}")
 
 # Testing Student class
-std1 = Student("Taha", 99)
+std1 = Student("Fayaz ALI", 33)
 std1.display()
 
 
 # 2. Using cls with Class Variables
+
+
+# Assignment:
+# Create a class Counter that keeps track of how many objects have been created. 
+# Use a class variable and a class method with cls to manage and display the count.
+
+
 
 class Counter:
     total_instances = 0
@@ -34,6 +48,11 @@ Counter.show_total()
 
 # 3. Public Members Access
 
+# Assignment:
+# Create a class Car with a public variable brand and a public method start().
+# Instantiate the class and access both from outside the class
+
+
 class Car:
     def __init__(self, brand_name):
         self.brand = brand_name
@@ -42,14 +61,21 @@ class Car:
         print(f"{self.brand} engine has been started!")
 
 # Accessing public method and variable
-car_obj = Car("Toyota")
+car_obj = Car("HAVAL")
 car_obj.start()
 
 
 # 4. Class Variables and Class Method
 
+# Assignment:
+# Create a class Bank with a class variable bank_name.
+# Add a class method change_bank_name(cls, name) that
+# allows changing the bank name. Show that it affects
+# all instances of the class.
+
+
 class Bank:
-    bank_name = "HBL Bank"
+    bank_name = "MEEZAN"
 
     @classmethod
     def set_bank_name(cls, new_name):
@@ -65,12 +91,17 @@ acc2 = Bank()
 acc1.show_bank()
 acc2.show_bank()
 
-Bank.set_bank_name("Al Baraka Bank")
+Bank.set_bank_name("Al Falah ")
 acc1.show_bank()
 acc2.show_bank()
 
 
 # 5. Static Method Example
+
+# Assignment:
+# Create a class MathUtils with a static method add(a, b) that returns the sum.
+# No class or instance variables should be used.
+
 
 class MathUtils:
     @staticmethod
@@ -82,6 +113,11 @@ print("Sum is:", MathUtils.add(7, 12))
 
 
 # 6. Constructor and Destructor Demo
+
+# Assignment:
+# Create a class Logger that prints a message when an object is created (constructor)
+# and another message when it is destroyed (destructor).
+
 
 class Logger:
     def __init__(self):
@@ -97,6 +133,16 @@ del log
 
 # 7. Access Modifiers
 
+
+# Assignment:
+# Create a class Employee with:
+# a public variable name,
+# a protected variable _salary, and
+# a private variable __ssn.
+# Try accessing all three variables from an object of the class and document what happens.
+
+
+
 class Employee:
     def __init__(self, emp_name, salary, ssn):
         self.name = emp_name
@@ -107,7 +153,7 @@ class Employee:
         print(f"Name: {self.name}, Salary: {self._salary}, SSN: {self.__ssn}")
 
 # Using the class
-emp = Employee("Taha Saif", 50000, "123-45-6789")
+emp = Employee("Fayaz ALI", 3330, "746289")
 emp.show_details()
 print(emp.name)         # Public
 print(emp._salary)      # Accessible but discouraged
@@ -115,6 +161,12 @@ print(emp._salary)      # Accessible but discouraged
 
 
 # 8. Using super()
+
+# Assignment:
+# Create a class Person with a constructor that sets the name.
+# Inherit a class Teacher from it, add a subject field, and use
+# super() to call the base class constructor.
+
 
 class Person:
     def __init__(self, pname):
@@ -129,11 +181,16 @@ class Teacher(Person):
         print(f"Teacher: {self.name}, Subject: {self.subject}")
 
 # Testing inheritance
-t1 = Teacher("Taha Saif", "Maths")
+t1 = Teacher("Abrar ALI", "CS")
 t1.introduce()
 
 
 # 9. Abstract Base Class
+
+# Assignment:
+# Use the abc module to create an abstract class Shape with an abstract method area().
+# Inherit a class Rectangle that implements area().
+
 
 from abc import ABC, abstractmethod
 
@@ -157,6 +214,11 @@ print("Area of rectangle:", rect.area())
 
 # 10. Instance Methods
 
+# Assignment:
+# Create a class Dog with instance variables name and breed. Add an instance method
+# bark() that prints a message including the dog's name.
+
+
 class Dog:
     def __init__(self, dog_name, breed):
         self.name = dog_name
@@ -170,6 +232,11 @@ my_dog.bark()
 
 
 # 11. Class Method Example
+
+# Assignment:
+# Create a class Book with a class variable total_books. Add a class method 
+# increment_book_count() to increase the count when a new book is added.
+
 
 class Book:
     total_books = 0
@@ -185,6 +252,11 @@ Book.add_book()
 
 # 12. Static Method Example
 
+# Assignment:
+# Create a class TemperatureConverter with a static method celsius_to_fahrenheit(c)
+# that returns the Fahrenheit value.
+
+
 class TemperatureConverter:
     @staticmethod
     def celsius_to_fahrenheit(c):
@@ -194,6 +266,12 @@ print("Fahrenheit:", TemperatureConverter.celsius_to_fahrenheit(30))
 
 
 # 13. Composition
+
+# Assignment:
+# Create a class Engine and a class Car. Use composition by passing an Engine object
+# to the Car class during initialization. Access a method of the Engine class via the
+# Car class.
+
 
 class Engine:
     def start(self):
@@ -214,6 +292,12 @@ vehicle.run()
 
 # 14. Aggregation
 
+# Assignment:
+# Create a class Department and a class Employee. Use aggregation by having a 
+# Department object store a reference to an Employee object that exists independently
+# of it.
+
+
 class Department:
     def __init__(self, dept_name):
         self.name = dept_name
@@ -231,15 +315,23 @@ class Employee:
     def __init__(self, emp_name):
         self.name = emp_name
 
-hr = Department("HR")
-e1 = Employee("Taha")
-e2 = Employee("Ali")
+hr = Department("Manager")
+e1 = Employee("Fayaz")
+e2 = Employee("Nabeel ALI")
 hr.add_staff(e1)
 hr.add_staff(e2)
 hr.show_staff()
 
 
 # 15. MRO and Diamond Problem
+
+# Assignment:
+# Create four classes:
+# A with a method show(),
+# B and C that inherit from A and override show(),
+# D that inherits from both B and C.
+# Create an object of D and call show() to observe MRO.
+
 
 class A:
     def show(self):
@@ -263,6 +355,12 @@ print("MRO:", D.__mro__)
 
 # 16. Function Decorator
 
+
+# Assignment:
+# Write a decorator function log_function_call that prints "Function is being called"
+# before a function executes. Apply it to a function say_hello().
+
+
 def log_call(func):
     def wrapper(*args, **kwargs):
         print("Logging: function is being called")
@@ -273,10 +371,15 @@ def log_call(func):
 def greet(name):
     print(f"Hello {name}!")
 
-greet("Taha")
+greet("Nabeel ALI")
 
 
 # 17. Class Decorator
+
+# Assignment:
+# Create a class decorator add_greeting that modifies a class to add a greet()
+# method returning "Hello from Decorator!". Apply it to a class Person.
+
 
 def add_greeting(cls):
     def greet(self):
@@ -292,12 +395,17 @@ class Person:
     def show_name(self):
         return f"My name is {self.name}"
 
-p = Person("Taha")
+p = Person("Nabeel")
 print(p.greet())
 print(p.show_name())
 
 
 # 18. Property Decorator
+
+# Assignment:
+# Create a class Product with a private attribute _price. Use @property to get the 
+# price, @price.setter to update it, and @price.deleter to delete it.
+
 
 class Product:
     def __init__(self, cost):
@@ -325,6 +433,12 @@ del item.price
 
 # 19. __call__ and callable()
 
+# Assignment:
+# Create a class Multiplier with an __init__() to set a factor. Define a __call__()
+# method that multiplies an input by the factor. Test it with callable() and by 
+# calling the object like a function.
+
+
 class Multiplier:
     def __init__(self, factor):
         self.factor = factor
@@ -338,6 +452,11 @@ print("Result:", m(6))
 
 
 # 20. Custom Exception
+
+# Assignment:
+# Create a custom exception InvalidAgeError. Write a function check_age(age) that
+# raises this exception if age < 18. Handle it with try...except.
+
 
 class InvalidAgeError(Exception):
     pass
@@ -354,6 +473,11 @@ except InvalidAgeError as err:
 
 
 # 21. Making a Class Iterable
+
+# Assignment:
+# Create a class Countdown that takes a start number. Implement __iter__() and 
+# __next__() to make the object iterable in a for-loop, counting down to 0.
+
 
 class Countdown:
     def __init__(self, start_num):
